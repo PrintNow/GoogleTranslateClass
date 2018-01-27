@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Asia/Shanghai');
-
 class GoogleTranslate
 {
 
@@ -21,9 +19,6 @@ class GoogleTranslate
 		// Request translation
 		$response = self::requestTranslation($source, $target, $text);
 
-		// Get translation text
-		// $response = self::getStringBetween("onmouseout=\"this.style.backgroundColor='#fff'\">", "</span></div>", strval($response));
-
 		// Clean translation
 		$translation = self::getSentencesFromJSON($response);
 
@@ -41,14 +36,21 @@ class GoogleTranslate
      *            Target language taken from the ' translate' function
      * @param string $text
      *            Text to translate taken from the 'translate' function
+		 * @param string $type
+		 *            'intl' use `translate.google.com` API, 'cn' use 'translate.google.cn' API. (default use translate.google.com)
      *
      * @return object[] The response of the translation service in JSON format
      */
-	protected static function requestTranslation($source, $target, $text)
+	protected static function requestTranslation($source, $target, $text, $type='intl')
 	{
+		if($type=='intl'){//use 'translate.google.com' API
+			$host='translate.google.com';
+		}else{//use 'translate.google.cn' API
+			$host='translate.google.cn';
+		}
 
 		// Google translate URL
-		$url = "https://translate.google.cn/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=es-ES&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e";
+		$url = "https://{$host}/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=es-ES&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e";
 
 		$fields = array(
 			'sl' => urlencode($source),
@@ -106,8 +108,3 @@ class GoogleTranslate
 		return $sentences;
 	}
 }
-
-$source = 'en';
-$target = 'zh-CN';
-$trans = new GoogleTranslate();
-echo $result = $trans->translate($source, $target, 'hello');
