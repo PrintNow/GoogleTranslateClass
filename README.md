@@ -1,7 +1,7 @@
 # for free Google Translate|免费的 Google Translate（谷歌翻译）类
 > Base on https://github.com/statickidz/php-google-translate-free develop
 
-> 第一次使用 GitHub 客户端提交，LICENSE 有点问题，需要更改
+> 第一次使用 GitHub 客户端提交，LICENSE 有点问题，需要更改.
 
 # Usage|用法
 ```php
