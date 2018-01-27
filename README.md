@@ -1,10 +1,9 @@
-# for free Google Translate
-# 免费的 Google Translate（谷歌翻译）类
-> 基于 https://github.com/statickidz/php-google-translate-free 开发
+# for free Google Translate|免费的 Google Translate（谷歌翻译）类
 > Base on https://github.com/statickidz/php-google-translate-free develop
 
-# Usage
-# 用法
+> 第一次使用 GitHub 客户端提交，LICENSE 有点问题，需要更改
+
+# Usage|用法
 ```php
 <?php
 require_once('./google.translate.class.php');
@@ -23,7 +22,6 @@ $result = $trans->translate($source, $target, $text, $type='cn');
 //run result 'Ok, Google!'
 //运行结果 'Ok, Google!'
 ```
-# LICENSE
-# 执照
+# LICENSE|执照
 
 ## GNU General Public License v3.0
