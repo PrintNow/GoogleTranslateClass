@@ -14,10 +14,10 @@ class GoogleTranslate
      *
      * @return string a simple string with the translation of the text in the target language
      */
-	public static function translate($source, $target, $text)
+	public static function translate($source, $target, $text, $type)
 	{
 		// Request translation
-		$response = self::requestTranslation($source, $target, $text);
+		$response = self::requestTranslation($source, $target, $text, $type);
 
 		// Clean translation
 		$translation = self::getSentencesFromJSON($response);
